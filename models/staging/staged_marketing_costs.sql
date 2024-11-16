@@ -9,8 +9,8 @@ with filtered_costs as (
     from {{ ref('marketing_costs') }}
     where 
         (
-            live_date <= '2024-11-15' and
-            (end_date is null or end_date >= '2024-10-01')
+            live_date <= '15/11/2024' and
+            (end_date is null or end_date >= '01/10/2024')
         )
 )
 select 

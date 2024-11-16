@@ -1,6 +1,6 @@
 # Business Models Documentation
 
-## CAC by Channel
+## CAC by Channel and Overall
 - **Purpose:** Calculate Customer Acquisition Cost (CAC) for each marketing channel.
 - **Logic:**
   - Identify new customers (`Customer Order Number = 1`).

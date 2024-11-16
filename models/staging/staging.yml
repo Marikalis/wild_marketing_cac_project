@@ -1,0 +1,6 @@
+version: 2
+models:
+  - name: staged_orders
+    description: Cleaned and prepared Shopify orders.
+  - name: staged_marketing_costs
+    description: Cleaned and prepared marketing cost data.

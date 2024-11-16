@@ -1,0 +1,6 @@
+version: 2
+models:
+  - name: cac_by_channel
+    description: CAC calculations grouped by marketing channel.
+  - name: most_successful_manager
+    description: Manager with the most successful campaign.

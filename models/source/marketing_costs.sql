@@ -1,1 +1,1 @@
-select * from {{ source('OUTPUT', 'ALL_INFLUENCER_RESULTS') }}
+select * from {{ source('google_sheets', 'all_influencer_results') }}
