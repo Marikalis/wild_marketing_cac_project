@@ -1,47 +1,50 @@
 with new_customers as (
+    -- Calculate new customers for each discount code
     select
         discount_code,
         count(distinct customer_id) as new_customer_count
     from {{ ref('staged_orders') }}
-    where order_number = 1
+    where order_number = 1  -- Only consider new customers
     group by discount_code
 ),
-channel_cac as (
+channel_data as (
+    -- Cost and new customers by channel
     select
         staged_marketing_costs.channel,
-        staged_marketing_costs.discount_code,
-        staged_marketing_costs.cost,
-        coalesce(new_customers.new_customer_count, 0) as new_customer_count,
-        staged_marketing_costs.cost / nullif(coalesce(new_customers.new_customer_count, 0), 0) as cac
+        sum(staged_marketing_costs.cost) as total_cost,
+        sum(nc.new_customer_count) as total_new_customers
     from {{ ref('staged_marketing_costs') }} staged_marketing_costs
-    left join new_customers
-    on staged_marketing_costs.discount_code = new_customers.discount_code
+    left join new_customers nc
+    on staged_marketing_costs.discount_code = nc.discount_code
+    group by staged_marketing_costs.channel
+),
+cac_by_channel as (
+    select
+        channel,
+        total_cost,
+        total_new_customers,
+        total_cost / nullif(total_new_customers, 0) as cac  -- Avoid division by zero
+    from channel_data
 ),
 overall_cac as (
     select
-        'Overall' as channel,
-        null as discount_code,
-        sum(staged_marketing_costs.cost) as total_cost,
-        sum(coalesce(new_customers.new_customer_count, 0)) as total_new_customer_count,
-        sum(staged_marketing_costs.cost) / nullif(sum(coalesce(new_customers.new_customer_count, 0)), 0) as overall_cac
-    from {{ ref('staged_marketing_costs') }} staged_marketing_costs
-    left join new_customers
-    on staged_marketing_costs.discount_code = new_customers.discount_code
+        sum(total_cost) as overall_total_cost,
+        sum(total_new_customers) as overall_new_customers,
+        sum(total_cost) / nullif(sum(total_new_customers), 0) as overall_cac -- Avoid division by zero
+    from channel_data
 )
 select
     channel,
-    discount_code,
-    cost,
-    new_customer_count,
+    total_cost,
+    total_new_customers,
     cac
-from channel_cac
+from cac_by_channel
 
 union all
 
-select 
-    channel,
-    discount_code,
-    total_cost as cost,
-    total_new_customer_count as new_customer_count,
+select
+    'Overall' as channel,
+    overall_total_cost as total_cost,
+    overall_new_customers as total_new_customers,
     overall_cac as cac
 from overall_cac
