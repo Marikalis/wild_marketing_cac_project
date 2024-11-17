@@ -41,10 +41,10 @@ This project uses **DuckDB** for local testing.
 3. **Run Models: Execute models to materialize tables/views**:
     ```
     dbt run
-    Query Results: Open DuckDB to view results:
     ```
 4. **Query Results: Open DuckDB to view results**:
     ```
     duckdb wild_marketing.db
     select * from staging.cac_by_channel;
+    select * from staging.most_successful_manager;
     ```
