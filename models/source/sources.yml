@@ -1,10 +1,10 @@
 version: 2
 sources:
   - name: shopify
-    schema: output
+    schema: staging
     tables:
       - name: final_orders
   - name: google_sheets
-    schema: output
+    schema: staging
     tables:
       - name: all_influencer_results

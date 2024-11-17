@@ -1,3 +1,4 @@
+-- depends_on: {{ ref('shopify_orders') }}
 with cleaned_orders as (
     select
         "Customer ID" as customer_id,
@@ -17,4 +18,4 @@ filtered_orders as (
         and lower(order_tags) not like '%test%'
 )
 select customer_id, order_number, order_date, discount_code
-from filtered_orders;
+from filtered_orders

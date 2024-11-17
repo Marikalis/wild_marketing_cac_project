@@ -16,4 +16,4 @@ select
     channel,
     discount_code,
     cac as lowest_cac
-from lowest_cac;
+from lowest_cac
