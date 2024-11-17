@@ -19,3 +19,32 @@ This dbt project calculates marketing campaign performance metrics for **Q4 2024
 ### Objectives
 - Enable data-driven decisions for campaign investments.
 - Highlight successful campaigns and managers for optimization.
+
+## **Database**
+This project uses **DuckDB** for local testing.
+- **Database File**: `wild_marketing.db`
+- **Schema**: `staging` (default in `profiles.yml`).
+
+---
+
+## **How to Run**
+1. **Install Dependencies**:
+    ```
+    pip install dbt-core dbt-duckdb duckdb
+    ```
+2. **Set Up Project: Clone the repository and navigate to the project directory**:
+    ```
+    git clone <repository-url>
+    cd wild_marketing_cac_project
+    dbt seed
+    ```
+3. **Run Models: Execute models to materialize tables/views**:
+    ```
+    dbt run
+    Query Results: Open DuckDB to view results:
+    ```
+4. **Query Results: Open DuckDB to view results**:
+    ```
+    duckdb wild_marketing.db
+    select * from staging.cac_by_channel;
+    ```
