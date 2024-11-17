@@ -11,7 +11,7 @@
 ## Most Successful Manager
 - **Purpose:** Identify the manager responsible for the campaign with the lowest Cost of Acquisition (CAC).
 - **Logic:**
-  - Reuse the `cac_by_channel` model to calculate CAC for each campaign.
+  - Calculate CAC for each campaign.
   - Join with the marketing costs to retrieve the associated manager.
   - Identify the campaign with the lowest CAC.
 

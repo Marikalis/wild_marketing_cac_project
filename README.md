@@ -20,12 +20,12 @@ This dbt project calculates marketing campaign performance metrics for **Q4 2024
 - Enable data-driven decisions for campaign investments.
 - Highlight successful campaigns and managers for optimization.
 
+---
+
 ## **Database**
 This project uses **DuckDB** for local testing.
 - **Database File**: `wild_marketing.db`
 - **Schema**: `staging` (default in `profiles.yml`).
-
----
 
 ## **How to Run**
 1. **Install Dependencies**:
