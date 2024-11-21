@@ -3,7 +3,7 @@
 ## CAC by Channel and Overall
 - **Purpose:** Calculate Customer Acquisition Cost (CAC) for each marketing channel and overall.
 - **Logic:**
-  - Centralizes channel-level data (total cost and new customers).
+  - Centralises channel-level data (total cost and new customers).
   - Identify new customers (`Customer Order Number = 1`).
   - Computes CAC for each channel.
   - Calculates the overall CAC across all channels.
