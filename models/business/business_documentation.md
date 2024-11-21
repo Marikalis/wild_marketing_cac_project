@@ -1,12 +1,12 @@
 # Business Models Documentation
 
 ## CAC by Channel and Overall
-- **Purpose:** Calculate Customer Acquisition Cost (CAC) for each marketing channel and overall.
+- **Purpose:** Calculate each marketing channel's overall customer acquisition cost (CAC).
 - **Logic:**
-  - Centralises channel-level data (total cost and new customers).
+  - Prepare data for each channel (total cost and new customers).
   - Identify new customers (`Customer Order Number = 1`).
-  - Computes CAC for each channel.
-  - Calculates the overall CAC across all channels.
+  - Compute CAC for each channel.
+  - Calculate the overall CAC across all channels.
 
 ## Most Successful Manager
 - **Purpose:** Identify the manager responsible for the campaign with the lowest Cost of Acquisition (CAC).
@@ -17,5 +17,5 @@
 
 ### Metrics:
 - **CAC:** Cost per new customer for each channel.
-- **Overall CAC:** Cost of acquiring a customer across all channels combined.
-- **Most Successful Manager:** The manager associated with the campaign having the lowest CAC.
+- **Overall CAC:** Customer acquisition cost across all channels combined.
+- **Most Successful Manager:** The manager associated with the campaign has the lowest CAC.
