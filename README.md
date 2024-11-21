@@ -36,10 +36,10 @@ This project uses **DuckDB** for local testing.
     ```
     git clone <repository-url>
     cd wild_marketing_cac_project
-    dbt seed
     ```
 3. **Run Models: Execute models to materialize tables/views**:
     ```
+    dbt seed
     dbt run
     ```
 4. **Query Results: Open DuckDB to view results**:
