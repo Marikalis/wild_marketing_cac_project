@@ -1,4 +1,5 @@
 # Source Data Documentation
+- **Purpose:** Clean and filter Shopify orders to focus on Q4 2024 (1 October – 15 November).
 
 ## Shopify Orders Table
 - **Location:** `SHARE_WILD_COSMETICS.OUTPUT.FINAL_ORDERS`
